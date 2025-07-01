@@ -1,5 +1,5 @@
 .topnav {
-    background-color: rgb(255, 153, 0);
+    background-color: rgb(25, 216, 25);
     overflow: hidden;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .card:hover {
-    background-color: rgb(255, 153, 0);
+    background-color: rgb(25, 216, 25);
     color: white;
     cursor: pointer;
     box-shadow: 9px 9px 9px 9px rgb(187, 10, 10, 0.4);
@@ -100,7 +100,7 @@
 }
 
 .btn-analizar{
-    background-color: rgb(255, 153, 0);
+    background-color: rgb(25, 216, 25);
     color: black;
     border: none;
     padding: 10px 20px;

@@ -6,9 +6,10 @@ export const useError = () => useContext(ErrorContext);
 
 export const ErrorProvider = ({ children }) => {
     const [errors, setErrors] = useState([]);
+    const [syntacticErrors, setSyntacticErrors] = useState([]); // errores sintácticos
 
     return (
-        <ErrorContext.Provider value={{ errors, setErrors }}>
+        <ErrorContext.Provider value={{ errors, setErrors, syntacticErrors, setSyntacticErrors }}>
             {children}
         </ErrorContext.Provider>
     );

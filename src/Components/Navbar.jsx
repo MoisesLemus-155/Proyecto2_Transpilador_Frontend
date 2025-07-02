@@ -11,7 +11,7 @@ export const PensumNavbar = ({ onFileClick }) => {
     return (
         <div className={`topnav${isResponsive ? " responsive" : ""}`} id="myTopnav">
             <ul className="nav nav-pills">
-                <a className="a-style active">Pensum USAC</a>
+                <a className="a-style active">Transpilador</a>
                 <a className='a-style' href='/'>Home</a>
                 <Link to="/Reporte" className="a-style">Reporte Error</Link>
                 <a className='a-style' href="/" onClick={(e) => {

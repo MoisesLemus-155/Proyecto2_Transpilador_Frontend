@@ -36,73 +36,16 @@ export const Inicial = () => {
         document.getElementById("fileInput").click();
     };
 
-    const handlePensumDataOriginal = async () => {
-        const result = await pensumData(editorText);
-        if (result) {
-            const errores = result.errors || [];
-            setErrors(errores);
-            setTokenList(result.tokens || []);
-
-            if (errores.length > 0) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Errores detectados",
-                    text: "Se detectaron errores. Puedes verlos en la sección de Reporte.",
-                    confirmButtonText: "OK"
-                });
-            } else {
-                setTranslatedCode(result.traduction || "");
-            }
-        }
-    };
-
-    const handlePensumData2 = async () => {
-        const result = await pensumData(editorText);
-
-        if (result) {
-            const erroresLexicos = result.errors || [];
-            const erroresSintacticos = result.syntacticErrors || [];
-
-            setErrors(erroresLexicos);
-            setSyntacticErrors(erroresSintacticos);
-            setTokenList(result.tokens || []);
-
-            if (erroresLexicos.length > 0) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Errores detectados",
-                    text: "Se detectaron errores léxicos. Revisa el reporte.",
-                    confirmButtonText: "Ir al reporte"
-                })
-                setTranslatedCode(result.traduction || "");
-                return;
-            } else if (erroresSintacticos.length > 0) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Errores detectados",
-                    text: "Se detectaron errores sintacticos. Revisa el reporte.",
-                    confirmButtonText: "Ir al reporte"
-                })
-                return;
-            }
-            setTranslatedCode(result.traduction || "");
-        }
-    };
-
     const handlePensumData = async () => {
         const result = await pensumData(editorText);
-
         if (result) {
             const erroresLexicos = result.errors || [];
             const erroresSintacticos = result.syntacticErrors || [];
-
             setErrors(erroresLexicos);
             setSyntacticErrors(erroresSintacticos);
             setTokenList(result.tokens || []);
-
             if (erroresLexicos.length > 0 || erroresSintacticos.length > 0) {
                 const tipo = erroresLexicos.length > 0 ? "léxicos" : "sintácticos";
-
                 Swal.fire({
                     icon: "error",
                     title: "Errores detectados",
@@ -114,7 +57,6 @@ export const Inicial = () => {
                 }
                 return;
             }
-
             setTranslatedCode(result.traduction || "");
         }
     };
